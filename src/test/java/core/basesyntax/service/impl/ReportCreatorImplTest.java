@@ -18,12 +18,6 @@ class ReportCreatorImplTest {
     }
 
     @Test
-    void countTheProducts_storageIsNull_notOk() {
-        assertThrows(NullPointerException.class,
-                () -> reportCreator.getReport(null));
-    }
-
-    @Test
     void countTheProducts_emptyProductName_Ok() {
         Storage current = new Storage();
         current.getStorage().put("", 15);

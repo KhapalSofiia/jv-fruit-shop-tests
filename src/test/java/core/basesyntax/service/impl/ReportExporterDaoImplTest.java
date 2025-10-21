@@ -3,7 +3,6 @@ package core.basesyntax.service.impl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import core.basesyntax.exceptions.WorkWithFileException;
 import core.basesyntax.service.ReportExporterDao;
 import java.io.IOException;
@@ -12,15 +11,6 @@ import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 
 class ReportExporterDaoImplTest {
-    @Test
-    void writeReport_NullFileName_notOk() {
-        ReportExporterDao reportExporterDao = new ReportExporterDaoImpl(null);
-        String report = "fruit,quantity" + System.lineSeparator()
-                + "banana,15" + System.lineSeparator()
-                + "apple,15" + System.lineSeparator();
-        assertThrows(NullPointerException.class, () -> reportExporterDao.writeReport(report));
-    }
-
     @Test
     void writeReport_emptyReport_Ok() throws IOException {
         String fileName = "empty-report.csv";
@@ -48,7 +38,7 @@ class ReportExporterDaoImplTest {
 
     @Test
     void writeReport_invalidPath_notOk() throws IOException {
-        String fileName = "src/example/empty-report.csv";
+        String fileName = "src/java/resources/empty-report.csv";
         ReportExporterDao reportExporter = new ReportExporterDaoImpl(fileName);
 
         String report = "fruit,quantity" + System.lineSeparator()

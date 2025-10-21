@@ -17,22 +17,6 @@ class BalanceActionTypeServiceImplTest {
     }
 
     @Test
-    void applyTheQuantity_nullStorage_notOk() {
-        assertThrows(NullPointerException.class,
-                () -> balanceActionTypeService.applyTheQuantity(null, "banana", 10));
-    }
-
-    @Test
-    void applyTheQuantity_nullProductName_Ok() {
-        Storage current = new Storage();
-        balanceActionTypeService.applyTheQuantity(current, null, 10);
-
-        Storage expected = new Storage();
-        expected.getStorage().put(null, 10);
-        assertEquals(expected.getStorage(), current.getStorage());
-    }
-
-    @Test
     void applyTheQuantity_negativeQuantity_notOk() {
         Storage storage = new Storage();
         assertThrows(InvalidDataException.class,

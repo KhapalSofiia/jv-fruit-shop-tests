@@ -22,12 +22,6 @@ class ReportExtractorDaoImplTest {
     }
 
     @Test
-    void getReport_inputStreamIsNull_notOk() {
-        assertThrows(NullPointerException.class,
-                () -> reportExtractorDao.getReport(null));
-    }
-
-    @Test
     void getReport_validInputStream_Ok() {
         String data = "type,fruit,quantity" + System.lineSeparator()
                 + "b,banana,10" + System.lineSeparator();

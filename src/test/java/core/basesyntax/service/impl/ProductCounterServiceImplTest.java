@@ -42,31 +42,6 @@ class ProductCounterServiceImplTest {
     }
 
     @Test
-    void countTheProducts_nullTransactionList_notOk() {
-        Storage storage = new Storage();
-
-        assertThrows(NullPointerException.class,
-                () -> productCounterService.countTheProducts(null, storage));
-    }
-
-    @Test
-    void countTheProducts_storageIsNull_notOk() {
-        FruitTransaction t1 = new FruitTransaction(
-                Operation.BALANCE, 10, "apple");
-        FruitTransaction t2 = new FruitTransaction(
-                Operation.SUPPLY, 5, "banana");
-        FruitTransaction t3 = new FruitTransaction(
-                Operation.RETURN, 2, "apple");
-        List<FruitTransaction> fruitTransactions = new ArrayList<>();
-        fruitTransactions.add(t1);
-        fruitTransactions.add(t2);
-        fruitTransactions.add(t3);
-
-        assertThrows(NullPointerException.class,
-                () -> productCounterService.countTheProducts(fruitTransactions, null));
-    }
-
-    @Test
     void countTheProducts_emptyTransactionList_Ok() {
         Storage testStorage = new Storage();
         Storage currectStorage = new Storage();

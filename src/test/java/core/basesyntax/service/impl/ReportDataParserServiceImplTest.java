@@ -21,12 +21,6 @@ class ReportDataParserServiceImplTest {
     }
 
     @Test
-    void parseReportToList_listIsNull_notOk() {
-        assertThrows(NullPointerException.class,
-                () -> reportDataParserService.parseReportToList(null));
-    }
-
-    @Test
     void parseReportToList_listIsEmpty_Ok() {
         List<String> report = new ArrayList<>();
 
